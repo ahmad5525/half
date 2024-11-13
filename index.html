@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Half-Birthday Calculator</title>
+    <link rel="stylesheet" href="./Style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Half-Birthday Calculator</h1>
+        <div class="form-group">
+            <div class="select-group">
+                <label for="year">Year:</label>
+                <select id="year">
+                    <option value="">Select Year</option>
+                    <script>
+                        const currentYear = new Date().getFullYear();
+                        for (let year = currentYear; year >= 1900; year--) {
+                            document.write(`<option value="${year}">${year}</option>`);
+                        }
+                    </script>
+                </select>
+            </div>
+
+            <div class="select-group">
+                <label for="month">Month:</label>
+                <select id="month">
+                    <option value="">Select Month</option>
+                    <script>
+                        for (let month = 1; month <= 12; month++) {
+                            document.write(`<option value="${month}">${new Date(0, month - 1).toLocaleString('default', { month: 'long' })}</option>`);
+                        }
+                    </script>
+                </select>
+            </div>
+
+            <div class="select-group">
+                <label for="day">Day:</label>
+                <select id="day">
+                    <option value="">Select Day</option>
+                    <script>
+                        for (let day = 1; day <= 31; day++) {
+                            document.write(`<option value="${day}">${day}</option>`);
+                        }
+                    </script>
+                </select>
+            </div>
+        </div>
+        <button onclick="calculateBirthdays()">Calculate Birthdays</button>
+        <div id="result"></div>
+    </div>
+    <script src="./Script.js"></script>
+</body>
+</html>
